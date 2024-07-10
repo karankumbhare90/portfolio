@@ -14,6 +14,11 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(name, email, contactNo, feedback);
+
+        if (!name || !email || !contactNo || !message) {
+            message.error("Please fill out the complete contact form.");
+        }
+
         try {
 
             // EmailJS sendForm function
