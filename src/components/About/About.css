@@ -1,0 +1,125 @@
+.about__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 4rem;
+    padding-bottom: 1rem;
+}
+
+.about__img {
+    width: 300px;
+    border-radius: 1.5rem;
+    justify-self: center;
+}
+
+.about__info {
+    grid-template-columns: repeat(3, 140px);
+    gap: 0.5rem;
+    margin-bottom: var(--mb-2);
+}
+
+.about__box {
+    background-color: var(--container-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+    padding: 1rem 1.2rem;
+}
+
+.about__icon {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    margin-bottom: var(--mb-0-5);
+}
+
+.about__title {
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb-0-5);
+}
+
+.about__subtitle {
+    margin-bottom: var(--mb-1-5);
+    font-size: 15px;
+    font-weight: var(--font-medium);
+}
+
+.about__titles {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb-0-25);
+}
+
+.about__subtitles {
+    margin-bottom: var(--mb-0-25);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+}
+
+.about__description {
+    margin-bottom: var(--mb-1-5);
+    font-size: 15px;
+    font-weight: var(--font-medium);
+    line-height: 1.4;
+}
+
+
+/* Breakpoints */
+
+/* For Large Devices */
+@media screen and (max-width : 992px) {
+    .about__container {
+        grid-template-columns: 1fr;
+        row-gap: 2.5rem;
+    }
+
+    .about__img {
+        width: 220px;
+    }
+
+    .about__box {
+        padding: .75rem .3rem;
+    }
+
+    .about__data {
+        text-align: center;
+    }
+
+    .about__info {
+        justify-content: center;
+    }
+
+    .about__description {
+        padding: 0 5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* For Medium Devices */
+@media screen and (max-width : 576px) {
+    .about__info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about__description {
+        padding: 0;
+    }
+
+    .about__titles {
+        font-size: var(--small-font-size);
+        font-weight: var(--font-medium);
+        margin-bottom: var(--mb-0-25);
+    }
+
+    .about__subtitles {
+        margin-bottom: var(--mb-0-25);
+        font-size: var(--smaller-font-size);
+        font-weight: var(--font-medium);
+    }
+}
+
+/* For Small Devices */
+@media screen and (max-width : 350px) {
+    .about__info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,77 @@
+.work__container {
+    width: 900px;
+    height: 300px !important;
+}
+
+.work__card {
+    background-color: var(--container-color);
+    /* border: 1px solid #ccc; */
+    margin-bottom: var(--mb-3);
+    max-height: 230px !important;
+    max-width: 280px !important;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.work__img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    margin-bottom: var(--mb-0-75);
+}
+
+.work__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.work__name {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb-0-25);
+}
+
+.work__button {
+    font-size: var(--tiny-font-size);
+    color: var(--body-color);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Swiper Class */
+.swiper-pagination-bullet {
+    background-color: var(--text-color) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--title-color) !important;
+}
+
+/* Breakpoints */
+/* For Large Devices */
+@media screen and (max-width : 992px) {
+    .work__container {
+        width: initial;
+        margin: 0 1rem;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .work__container {
+        margin: 0 1rem;
+    }
+}
+
+@media screen and (max-width : 576px) {
+
+    .work__container {
+        margin: 0 1rem;
+    }
+}
