@@ -37,9 +37,23 @@ export const projectData = [
     },
 
     {
-        id: 6,
+        id: 7,
         image: 'https://img.freepik.com/free-vector/gradient-pastel-color-background_23-2149360874.jpg?t=st=1720589300~exp=1720592900~hmac=1bbabe95ec72b74517e9b11c4102d1a75041ab7e5d00b5cc2eadafc750b874bf&w=740',
         title: 'Random Color Generator',
         link: 'https://github.com/karankumbhare90/random-color-generator'
-    }
+    },
+    {
+        id: 8,
+        image: 'https://img.freepik.com/free-vector/realistic-multimedia-player-template_23-2148130954.jpg?t=st=1721405815~exp=1721409415~hmac=7508009670797cbddc2ce9151f280c05db96f2d0efb48bed0f9623acaa2e5857&w=740',
+        title: 'Youtube UI Clone',
+        link: 'https://github.com/karankumbhare90/youtube-ui'
+    },
+    {
+        id: 9,
+        image: 'https://img.freepik.com/free-vector/gradient-creative-portfolio-templates_23-2149206303.jpg?t=st=1721406082~exp=1721409682~hmac=f8866cf9fee68933da9864b1887ee20e3957423a92f0d40879a5f6e81d42c161&w=740',
+        title: 'Personal Portfolio',
+        link: 'https://github.com/karankumbhare90/PRODIGY_WD_04'
+    },
+
+
 ]
