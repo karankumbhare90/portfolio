@@ -1,47 +1,53 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { message } from 'antd';
-import './Contact.css'
+import './Contact.css';
 
 const Contact = () => {
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [contactNo, setContactNo] = useState('');
     const [feedback, setFeedback] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const form = useRef(); // Ref for the form element
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(name, email, contactNo, feedback);
 
-        if (!name || !email || !contactNo || !message) {
+        if (!name || !email || !contactNo || !feedback) {
             message.error("Please fill out the complete contact form.");
+            return;
         }
 
+        setIsLoading(true); // Set loading to true when submission starts
+
         try {
-
             // EmailJS sendForm function
-            const result = await emailjs.send('service_u1psgzu', 'template_c3fie46', form.current, 'oeRAeTHfwBMd39AHo')
+            let result = await emailjs.sendForm(
+                'service_u1psgzu',
+                'template_c3fie46',
+                form.current,
+                'oeRAeTHfwBMd39AHo'
+            );
 
-            if (result) {
+            if (result.status === 200) {
                 message.success("Your Message is Sent");
-                setName('')
+                setName('');
                 setEmail('');
                 setContactNo('');
                 setFeedback('');
-            }
-            else {
+            } else {
                 message.error('Email sending failed');
             }
-        }
-        catch (err) {
+        } catch (err) {
             message.error(err.message);
+        } finally {
+            setIsLoading(false); // Set loading to false after submission completes or fails
         }
     };
 
     return (
-
         <section className="section contact" id="contact">
             <h2 className="section__title">Get in touch</h2>
             <span className="section__subtitle">Contact Me</span>
@@ -54,54 +60,75 @@ const Contact = () => {
                             <i className="bx bx-mail-send contact__card-icon"></i>
 
                             <h3 className="contact__card-title">Email</h3>
-                            {/* <span className="contact__card-data">karankumbhare90@gmail.com</span> */}
-                            <a href="mailto:karankumbhare90@gmail.com" className="contact__button">Write me <i className="bx bx-right-arrow-alt contact__button-icon"></i></a>
+                            <a href="mailto:karankumbhare90@gmail.com" className="contact__button">
+                                Write me <i className="bx bx-right-arrow-alt contact__button-icon"></i>
+                            </a>
                         </div>
 
                         <div className="contact__card">
                             <i className="bx bx-phone-call contact__card-icon"></i>
 
                             <h3 className="contact__card-title">Mobile</h3>
-                            {/* <span className="contact__card-data">+91 6352305914</span> */}
-                            <a href="tel:+916352305914" className="contact__button">Write me <i className="bx bx-right-arrow-alt contact__button-icon"></i></a>
+                            <a href="tel:+916352305914" className="contact__button">
+                                Write me <i className="bx bx-right-arrow-alt contact__button-icon"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div className="contact__content">
                     <h3 className="contact__title">Write me your Project</h3>
-                    <form className="contact__form">
+                    <form ref={form} className="contact__form" onSubmit={handleSubmit}>
                         <div className="contact__form-div">
                             <label className="contact__form-tag">Name</label>
-                            <input type="text" name='from_name' value={name} onChange={(e) => setName(e.target.value)} className="contact__form-input" placeholder='Write your name' />
+                            <input
+                                type="text"
+                                name="from_name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="contact__form-input"
+                                placeholder="Write your name"
+                            />
                         </div>
 
                         <div className="contact__form-div">
-                            <label className="contact__form-tag">Email : </label>
-                            <input type="email" name='user_email' value={email} onChange={(e) => setEmail(e.target.value)} className="contact__form-input" placeholder='Write your email' />
+                            <label className="contact__form-tag">Email</label>
+                            <input
+                                type="email"
+                                name="user_email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="contact__form-input"
+                                placeholder="Write your email"
+                            />
                         </div>
 
                         <div className="contact__form-div">
-                            <label className="contact__form-tag">Contact No. : </label>
-                            <input type="text" name='user_contact' value={contactNo} onChange={(e) => setContactNo(e.target.value)} className="contact__form-input" placeholder='Write your contact No.' />
+                            <label className="contact__form-tag">Contact No.</label>
+                            <input
+                                type="text"
+                                name="user_contact"
+                                value={contactNo}
+                                onChange={(e) => setContactNo(e.target.value)}
+                                className="contact__form-input"
+                                placeholder="Write your contact No."
+                            />
                         </div>
 
                         <div className="contact__form-div contact__form-area">
                             <label className="contact__form-tag">Message</label>
                             <textarea
-                                name='message'
+                                name="message"
                                 cols={30}
                                 rows={10}
                                 value={feedback}
                                 onChange={(e) => setFeedback(e.target.value)}
-                                className='contact__form-input'
-                                placeholder='Write your message'
-                            >
-
-                            </textarea>
+                                className="contact__form-input"
+                                placeholder="Write your message"
+                            />
                         </div>
-                        <button className="button button--flex" onClick={handleSubmit}>
-                            Send Message
+                        <button className="button button--flex" type="submit" disabled={isLoading}>
+                            {isLoading ? "Sending Message.." : "Send Message"}
                             <svg
                                 className="button__icon"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +151,7 @@ const Contact = () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Contact
+export default Contact;
