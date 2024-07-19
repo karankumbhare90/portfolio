@@ -9,7 +9,7 @@ const Data = () => {
                 Web Developer | MERN Stack Developer
             </h3>
             <p className="home__description">
-                I'm creative Web Developer based in Gujarat, India, and I'm very passionate and dedicate to my work.
+                I'm creative Web Developer based in Gujarat, India, and I'm very passionate and dedicated to my work.
             </p>
 
             <a href="#contact" className="button button--flex">
