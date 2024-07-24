@@ -36,13 +36,17 @@ function Carousel() {
         >
             {projectData.map((slide, index) => (
                 <SwiperSlide key={index} className="slide-inner">
-                    <img src={slide.image} alt="" />
+                    <div className="proje-img">
+                        <img src={slide.image} alt="" />
+                    </div>
                     <div className="work__details">
                         <h3 className="work__name">{slide?.title}</h3>
                         <a href={slide?.link} className="work__button">
                             GitHub
                         </a>
                     </div>
+
+                    <div></div>
                 </SwiperSlide>
             ))}
             <div className="button-prev">
