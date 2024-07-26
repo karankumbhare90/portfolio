@@ -70,7 +70,7 @@ const Contact = () => {
 
                             <h3 className="contact__card-title">Mobile</h3>
                             <a href="tel:+916352305914" className="contact__button">
-                                Write me <i className="bx bx-right-arrow-alt contact__button-icon"></i>
+                                Call me <i className="bx bx-right-arrow-alt contact__button-icon"></i>
                             </a>
                         </div>
                     </div>
